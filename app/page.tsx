@@ -63,16 +63,37 @@ export default function Home() {
         description="Analysis of gun violence incidents across demographic factors including age, income, race, and gender. Understanding the human impact through data."
         variant="muted"
       >
-        <div className="flex items-center justify-center min-h-[400px] rounded-lg border-2 border-dashed border-border bg-muted/50">
+        <div className="flex flex-col gap-6 rounded-lg border-2 border-dashed border-border bg-muted/50 p-4">
           <div className="text-center px-4">
-            <h3 className="text-xl font-semibold text-foreground mb-2">Demographics Visualization</h3>
-            <p className="text-muted-foreground max-w-md">
+            <h3 className="text-xl font-semibold text-foreground mb-2">
+              Demographics Visualization
+            </h3>
+            <p className="text-muted-foreground max-w-md mx-auto">
               Add your Tableau or D3.js visualizations here to display demographic breakdowns by age, income, race, and
               gender.
             </p>
           </div>
+
+          {/* Viz 1 */}
+          <div className="relative w-full min-h-[720px]">
+            <TableauEmbed
+              url="https://public.tableau.com/views/agecharts/Demographic?:embed=y&:showVizHome=no"
+              title="Gun Violence National Dashboard"
+              
+            />
+          </div>
+
+          {/* Viz 2 */}
+          <div className="relative w-full min-h-[720px]">
+            <TableauEmbed
+              url="https://public.tableau.com/views/RaceDistributionvsMortalityRatebyState/RaceDistributionandMortalityRateByState?:embed=y&:showVizHome=no"
+              title="Gun Violence National Dashboard"
+              
+            />
+          </div>
         </div>
       </VisualizationSection>
+
 
       {/* Gun Type Analysis Section */}
       <VisualizationSection
