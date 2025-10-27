@@ -156,8 +156,8 @@ export function GunTypeMap() {
           </div>
         </div>
         
-        <svg id="treemap" width="400" height="220"></svg></div>
-
+        <svg id="treemap" width="400" height="220" style="margin-left:auto; top:12px; right:12px; background:white; border:1px solid #ddd; z-index:1000;"></svg>
+        
         <main id="wrap">
           <section id="map-area">
             <div class="map-inner">
