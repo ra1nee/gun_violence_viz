@@ -21,20 +21,29 @@ export function GunTypeMap() {
             margin: 0;
           }
 
-          .gun-type-map-wrapper header h2 { margin: 0; font-size: 20px; }
-          .gun-type-map-wrapper header .subtitle { margin: 4px 0 12px 0; color: #555; font-size: 13px; }
+          header h2 { margin: 0; font-size: 20px; }
+          header .subtitle { margin: 4px 0 12px 0; color: #555; font-size: 13px; }
 
-          .gun-type-map-wrapper #controls { display:flex; gap:18px; align-items:flex-start; margin-bottom:10px; flex-wrap:wrap; }
-          .gun-type-map-wrapper .control-block { display:flex; flex-direction:column; gap:6px; }
-          .gun-type-map-wrapper label.inline { display:flex; align-items:center; gap:6px; }
-          .gun-type-map-wrapper label.small { font-size:12px; color:#444; }
-          .gun-type-map-wrapper select { padding: 4px; font-size: 13px; }
-          .gun-type-map-wrapper button { padding: 6px 12px; background: #4679b8; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 13px; }
-          .gun-type-map-wrapper button:hover { background: #365a8f; }
+          /* --- Top row (filters + treemap) --- */
+          #top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 10px;
+          }
 
-          .gun-type-map-wrapper main#wrap { display:flex; gap:12px; align-items:flex-start; }
+          #controls { display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap; }
+          .control-block { display:flex; flex-direction:column; gap:6px; }
+          label.inline { display:flex; align-items:center; gap:6px; }
+          label.small { font-size:12px; color:#444; }
+          select { padding: 4px; font-size: 13px; }
+          button { padding: 6px 12px; background: #4679b8; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 13px; }
+          button:hover { background: #365a8f; }
 
-          .gun-type-map-wrapper #map-area {
+          main#wrap { display:flex; gap:12px; align-items:flex-start; margin-top: 0; }
+
+          #map-area {
             flex: 1 1 auto;
             min-width: 700px;
             background: white;
@@ -47,20 +56,10 @@ export function GunTypeMap() {
             align-items: center;
           }
 
-          .gun-type-map-wrapper .map-inner {
-            display: block;
-            width: 100%;
-            text-align: center;
-          }
-    
-          .gun-type-map-wrapper #map {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-            height: auto;
-          }
+          .map-inner { width: 100%; text-align: center; }
+          #map { display: block; margin: 0 auto; max-width: 100%; height: auto; }
 
-          .gun-type-map-wrapper #legend {
+          #legend {
             margin-top: 10px;
             font-size: 12px;
             position: absolute;
@@ -73,15 +72,17 @@ export function GunTypeMap() {
             border: 1px solid #e6e6e6;
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
           }
-          .gun-type-map-wrapper #legend-gradient {
+
+          #legend-gradient {
             height: 10px;
             background: linear-gradient(to right, #fff5f0, #fee0d2, #fcbba1, #fc9272, #fb6a4a, #de2d26, #a50f15);
             border: 1px solid #ddd;
             margin: 6px 0;
           }
-          .gun-type-map-wrapper .legend-labels { display:flex; justify-content:space-between; color:#444; font-size:12px; }
 
-          .gun-type-map-wrapper #side {
+          .legend-labels { display:flex; justify-content:space-between; color:#444; font-size:12px; }
+
+          #side {
             width: 500px;
             background: #fff;
             border: 1px solid #e0e0e0;
@@ -89,10 +90,11 @@ export function GunTypeMap() {
             box-sizing: border-box;
             box-shadow: 0 1px 2px rgba(0,0,0,0.03);
           }
-          .gun-type-map-wrapper #bar { width: 100%; }
-          .gun-type-map-wrapper #side .hint { font-size:12px; color:#666; margin-top:8px; }
 
-          .gun-type-map-wrapper #tooltip {
+          #bar { width: 100%; }
+          #side .hint { font-size:12px; color:#666; margin-top:8px; }
+
+          #tooltip {
             position: absolute;
             pointer-events: none;
             display: none;
@@ -106,25 +108,28 @@ export function GunTypeMap() {
             z-index: 9999;
           }
 
-          .gun-type-map-wrapper .labels-layer text.label {
+          .labels-layer text.label {
             fill: #111;
             stroke: none;
             font-weight: 600;
-            paint-order: stroke;
             text-shadow: 0 0 2px rgba(255,255,255,0.8);
           }
 
-          .gun-type-map-wrapper #treemap {
+          #treemap {
             font-family: Arial, sans-serif;
-          }
-          .gun-type-map-wrapper #treemap text {
-            pointer-events: none;
+            margin-left: auto;
+            background: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
           }
 
+          #treemap text { pointer-events: none; }
+
           @media (max-width: 1200px) {
-            .gun-type-map-wrapper main#wrap { flex-direction: column; }
-            .gun-type-map-wrapper #map-area { min-width: auto; width: 100%; }
-            .gun-type-map-wrapper #side { width: 100%; }
+            #top-row { flex-direction: column; align-items: flex-start; }
+            main#wrap { flex-direction: column; }
+            #map-area { min-width: auto; width: 100%; }
+            #side { width: 100%; }
           }
         </style>
 
@@ -133,31 +138,34 @@ export function GunTypeMap() {
           <p class="subtitle">Multi-select gun types (hold Ctrl/Cmd). Click a state to highlight. Click a bar to highlight (no zoom).</p>
         </header>
 
-        <div id="controls">
-          <div class="control-block">
-            <label for="gunTypeSelect"><strong>Gun type (multi-select)</strong></label>
-            <select id="gunTypeSelect" multiple size="8" title="Hold Ctrl/Cmd to select multiple"></select>
+        <!-- Filters + Treemap in one row -->
+        <div id="top-row">
+          <div id="controls">
+            <div class="control-block">
+              <label for="gunTypeSelect"><strong>Gun type (multi-select)</strong></label>
+              <select id="gunTypeSelect" multiple size="8" title="Hold Ctrl/Cmd to select multiple"></select>
+            </div>
+
+            <div class="control-block">
+              <label for="stateSelect"><strong>State</strong></label>
+              <select id="stateSelect">
+                <option value="All States">All States</option>
+              </select>
+              <label class="inline small">
+                <input type="checkbox" id="showLabels" />
+                Show counts on map
+              </label>
+              <label class="inline small">
+                <input type="checkbox" id="excludeUnknown" />
+                Exclude Unknown
+              </label>
+              <button id="resetZoom">Reset Zoom</button>
+            </div>
           </div>
 
-          <div class="control-block">
-            <label for="stateSelect"><strong>State</strong></label>
-            <select id="stateSelect">
-              <option value="All States">All States</option>
-            </select>
-            <label class="inline small">
-              <input type="checkbox" id="showLabels" />
-              Show counts on map
-            </label>
-            <label class="inline small">
-              <input type="checkbox" id="excludeUnknown" />
-              Exclude Unknown
-            </label>
-            <button id="resetZoom">Reset Zoom</button>
-          </div>
+          <svg id="treemap" width="400" height="220"></svg>
         </div>
-        
-        <svg id="treemap" width="400" height="220" style="margin-left:auto; top:12px; right:12px; background:white; border:1px solid #ddd; z-index:1000;"></svg>
-        
+
         <main id="wrap">
           <section id="map-area">
             <div class="map-inner">
