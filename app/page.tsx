@@ -23,38 +23,21 @@ export default function Home() {
 
       {/* Tableau Visualization Section */}
       <VisualizationSection
-        title="National Overview"
+        title="US Overview of Gun Violence"
         description="Comprehensive statistics on gun violence incidents across all 50 states, including temporal trends and geographic distribution patterns."
       >
-        {/* <TableauEmbed
-          url="https://public.tableau.com/views/gun_violence_visualization/Sheet6?:embed=y&:showVizHome=no"
-          title="Gun Violence National Dashboard"
-        /> */}
-        <div className="flex items-center justify-center min-h-[400px] rounded-lg border-2 border-dashed border-border bg-muted/50">
+        <TableauEmbed
+          url="https://public.tableau.com/views/gun_violence_visualization_update/Overalldemographics?:embed=y&:showVizHome=no"
+          title="Gun Violence US Overview Dashboard"
+        />
+        {/* <div className="flex items-center justify-center min-h-[400px] rounded-lg border-2 border-dashed border-border bg-muted/50">
           <div className="text-center px-4">
-            <h3 className="text-xl font-semibold text-foreground mb-2">National Overview Visualization</h3>
+            <h3 className="text-xl font-semibold text-foreground mb-2">US Overview of Gun Violence Visualization</h3>
             <p className="text-muted-foreground max-w-md">
               Add your Tableau or D3.js visualizations here to display gun violence statistics and trends.
             </p>
           </div>
-        </div>
-      </VisualizationSection>
-
-      {/* D3 Visualization Section 1 */}
-      <VisualizationSection
-        title="Gun Violence Over the Years"
-        description="Interactive timeline showing the frequency and severity of gun violence incidents over time. Hover over data points for detailed information."
-        variant="muted"
-      >
-        {/* <D3TimelineChart /> */}
-        <div className="flex items-center justify-center min-h-[400px] rounded-lg border-2 border-dashed border-border bg-muted/50">
-          <div className="text-center px-4">
-            <h3 className="text-xl font-semibold text-foreground mb-2">Gun Violence Over the Years Visualization</h3>
-            <p className="text-muted-foreground max-w-md">
-              Add your Tableau or D3.js visualizations here to display gun violence trends over time.
-            </p>
-          </div>
-        </div>
+        </div> */}
       </VisualizationSection>
 
       {/* Demographics Section */}
