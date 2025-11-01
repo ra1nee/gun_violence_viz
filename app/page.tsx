@@ -27,7 +27,7 @@ export default function Home() {
         description="Comprehensive statistics on gun violence incidents across all 50 states, including temporal trends and geographic distribution patterns."
       >
         <TableauEmbed
-          url="https://public.tableau.com/views/gun_violence_visualization_update/Overalldemographics?:embed=y&:showVizHome=no"
+          url="https://public.tableau.com/shared/CXBMPRFF8?:embed=y&:showVizHome=no"
           title="Gun Violence US Overview Dashboard"
         />
         {/* <div className="flex items-center justify-center min-h-[400px] rounded-lg border-2 border-dashed border-border bg-muted/50">
@@ -46,7 +46,55 @@ export default function Home() {
         description="Analysis of gun violence incidents across demographic factors including age, income, race, and gender. Understanding the human impact through data."
         variant="muted"
       >
-        <div className="flex items-center justify-center min-h-[400px] rounded-lg border-2 border-dashed border-border bg-muted/50">
+        <div>
+          <TableauEmbed
+            url="https://public.tableau.com/views/gun_violence_visualization_update/Genderdashboard?:embed=y&:showVizHome=no"
+            title="Gun Violence Age Breakdown Dashboard"
+          />
+          <div className="py-4">
+            <p className="text-muted-foreground">
+              Add age description here.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <TableauEmbed
+            url="https://public.tableau.com/views/gun_violence_visualization_update/Genderdashboard?:embed=y&:showVizHome=no"
+            title="Gun Violence Gender Breakdown Dashboard"
+          />
+          <div className="py-4">
+            <p className="text-muted-foreground">
+              Add gender description here.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <TableauEmbed
+            url="https://public.tableau.com/views/gun_violence_visualization_update/Genderdashboard?:embed=y&:showVizHome=no"
+            title="Gun Violence Race Breakdown Dashboard"
+          />
+          <div className="py-4">
+            <p className="text-muted-foreground">
+              Add race description here.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <TableauEmbed
+            url="https://public.tableau.com/views/gun_violence_visualization_update/Genderdashboard?:embed=y&:showVizHome=no"
+            title="Gun Violence Income Breakdown Dashboard"
+          />
+          <div className="py-4">
+            <p className="text-muted-foreground">
+              Add income description here.
+            </p>
+          </div>
+        </div>
+
+        {/* <div className="flex items-center justify-center min-h-[400px] rounded-lg border-2 border-dashed border-border bg-muted/50">
           <div className="text-center px-4">
             <h3 className="text-xl font-semibold text-foreground mb-2">Demographics Visualization</h3>
             <p className="text-muted-foreground max-w-md">
@@ -54,7 +102,7 @@ export default function Home() {
               gender.
             </p>
           </div>
-        </div>
+        </div> */}
       </VisualizationSection>
 
       {/* Gun Type Analysis Section */}
