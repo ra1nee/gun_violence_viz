@@ -27,7 +27,7 @@ export default function Home() {
         description="Comprehensive statistics on gun violence incidents across all 50 states, including temporal trends and geographic distribution patterns."
       >
         <TableauEmbed
-          url="https://public.tableau.com/shared/CXBMPRFF8?:embed=y&:showVizHome=no"
+          url="https://public.tableau.com/views/overall_gender_analysis/Overalldashboard?:embed=y&:showVizHome=no"
           title="Gun Violence US Overview Dashboard"
         />
         {/* <div className="flex items-center justify-center min-h-[400px] rounded-lg border-2 border-dashed border-border bg-muted/50">
@@ -48,7 +48,7 @@ export default function Home() {
       >
         <div>
           <TableauEmbed
-            url="https://public.tableau.com/views/gun_violence_visualization_update/Genderdashboard?:embed=y&:showVizHome=no"
+            url=""
             title="Gun Violence Age Breakdown Dashboard"
           />
           <div className="py-4">
@@ -60,7 +60,7 @@ export default function Home() {
 
         <div>
           <TableauEmbed
-            url="https://public.tableau.com/views/gun_violence_visualization_update/Genderdashboard?:embed=y&:showVizHome=no"
+            url="https://public.tableau.com/views/overall_gender_analysis/GenderDashboard?:embed=y&:showVizHome=no"
             title="Gun Violence Gender Breakdown Dashboard"
           />
           <div className="py-4">
@@ -72,7 +72,7 @@ export default function Home() {
 
         <div>
           <TableauEmbed
-            url="https://public.tableau.com/views/gun_violence_visualization_update/Genderdashboard?:embed=y&:showVizHome=no"
+            url=""
             title="Gun Violence Race Breakdown Dashboard"
           />
           <div className="py-4">
@@ -84,7 +84,7 @@ export default function Home() {
 
         <div>
           <TableauEmbed
-            url="https://public.tableau.com/views/gun_violence_visualization_update/Genderdashboard?:embed=y&:showVizHome=no"
+            url=""
             title="Gun Violence Income Breakdown Dashboard"
           />
           <div className="py-4">
