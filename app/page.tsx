@@ -123,10 +123,41 @@ export default function Home() {
           <div className="text-center px-4">
             <h3 className="text-xl font-semibold text-foreground mb-2">Laws & Legislation Visualization</h3>
             <p className="text-muted-foreground max-w-md">
-              Add your Tableau or D3.js visualizations here to display gun law data and correlations with violence
-              statistics.
+
+              This interactive dashboard visualizes the evolution and distribution of firearm-related legislation across the United States, alongside 
             </p>
           </div>
+        
+
+        </div>
+        <div>
+          <TableauEmbed
+            url="https://public.tableau.com/views/gunlaws_with_gun_data/Dashboard1?:?:embed=y&:showVizHome=no"
+            title="Gun Laws with Gun Death Dashboard"
+          />
+        </div>
+
+
+          <TableauEmbed
+            url="https://public.tableau.com/views/gunlaws_17622635731760/GunlawsimplementationDashboard?:embed=y&:showVizHome=no"
+            title="Gun Law Scorecard Dashboard"
+          />
+                  <div>
+          {/* <p>This interactive dashboard visualizes the evolution and distribution of firearm-related legislation across the United States.
+Timeline for Number of Laws: The top line chart tracks how gun-related laws have changed over time, categorized by the type of legislative action—Implement, Modify, or Repeal—to reveal trends in policy momentum and reform periods.
+Number of Laws Implemented by State: The treemap in the center highlights each state’s contribution to total legislative activity. Larger blocks indicate states with a higher count of enacted or amended laws.
+Type of Gun Law Implementation by State: The bottom stacked bar chart breaks down the composition of law types—such as background checks, open carry, registration, and waiting periods—implemented in each state.
+Together, these visuals allow users to explore how actively each state has legislated on firearms, what kinds of regulations dominate, and when major policy shifts occurred.
+Clicking a state dynamically filters the other charts, enabling deeper exploration of state-specific legislative patterns and focus areas.</p> */}
+        </div>
+        <div></div>
+         <TableauEmbed
+                url="https://public.tableau.com/views/lobbying_17622618963790/Amountspentlobbyingbyinterest?:embed=y&:showVizHome=no"
+                title="Gun Violence Lobbying Amounts by Interest"
+              />
+
+               <div>
+          <p>This chart showcases the amount spent by various interest groups on gun violence prevention and legislation efforts.</p>
         </div>
       </VisualizationSection>
 
