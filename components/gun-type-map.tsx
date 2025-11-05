@@ -18,19 +18,32 @@ export function GunTypeMap() {
             background: #fafafa;
             color: #222;
             padding: 12px;
+            margin: 0;
           }
 
-          .gun-type-map-wrapper header h2 { margin: 0; font-size: 20px; }
-          .gun-type-map-wrapper header .subtitle { margin: 4px 0 12px 0; color: #555; font-size: 13px; }
+          header h2 { margin: 0; font-size: 20px; }
+          header .subtitle { margin: 4px 0 12px 0; color: #555; font-size: 13px; }
 
-          .gun-type-map-wrapper #controls { display:flex; gap:18px; align-items:flex-start; margin-bottom:10px; flex-wrap:wrap; }
-          .gun-type-map-wrapper .control-block { display:flex; flex-direction:column; gap:6px; }
-          .gun-type-map-wrapper label.inline { display:flex; align-items:center; gap:6px; }
-          .gun-type-map-wrapper label.small { font-size:12px; color:#444; }
+          /* --- Top row (filters + treemap) --- */
+          #top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 10px;
+          }
 
-          .gun-type-map-wrapper main#wrap { display:flex; gap:12px; align-items:flex-start; }
+          #controls { display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap; }
+          .control-block { display:flex; flex-direction:column; gap:6px; }
+          label.inline { display:flex; align-items:center; gap:6px; }
+          label.small { font-size:12px; color:#444; }
+          select { padding: 4px; font-size: 13px; }
+          button { padding: 6px 12px; background: #4679b8; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 13px; }
+          button:hover { background: #365a8f; }
 
-          .gun-type-map-wrapper #map-area {
+          main#wrap { display:flex; gap:12px; align-items:flex-start; margin-top: 0; }
+
+          #map-area {
             flex: 1 1 auto;
             min-width: 700px;
             background: white;
@@ -43,20 +56,10 @@ export function GunTypeMap() {
             align-items: center;
           }
 
-          .gun-type-map-wrapper .map-inner {
-            display: block;
-            width: 100%;
-            text-align: center;
-          }
+          .map-inner { width: 100%; text-align: center; }
+          #map { display: block; margin: 0 auto; max-width: 100%; height: auto; }
 
-          .gun-type-map-wrapper #map {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-            height: auto;
-          }
-
-          .gun-type-map-wrapper #legend {
+          #legend {
             margin-top: 10px;
             font-size: 12px;
             position: absolute;
@@ -69,60 +72,29 @@ export function GunTypeMap() {
             border: 1px solid #e6e6e6;
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
           }
-          .gun-type-map-wrapper #legend-gradient {
+
+          #legend-gradient {
             height: 10px;
             background: linear-gradient(to right, #fff5f0, #fee0d2, #fcbba1, #fc9272, #fb6a4a, #de2d26, #a50f15);
             border: 1px solid #ddd;
             margin: 6px 0;
           }
-          .gun-type-map-wrapper .legend-labels { display:flex; justify-content:space-between; color:#444; font-size:12px; }
 
-          .gun-type-map-wrapper #side {
+          .legend-labels { display:flex; justify-content:space-between; color:#444; font-size:12px; }
+
+          #side {
             width: 500px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-          }
-          
-          .gun-type-map-wrapper .side-panel {
             background: #fff;
             border: 1px solid #e0e0e0;
             padding: 10px;
             box-sizing: border-box;
             box-shadow: 0 1px 2px rgba(0,0,0,0.03);
           }
-          
-          .gun-type-map-wrapper #bar { width: 100%; }
-          .gun-type-map-wrapper #treemap { width: 100%; }
-          .gun-type-map-wrapper .side-panel .hint { font-size:12px; color:#666; margin-top:8px; }
-          .gun-type-map-wrapper .side-panel h3 { margin: 0 0 8px 0; font-size: 16px; }
 
-          .gun-type-map-wrapper .filter-badge {
-            display: inline-block;
-            background: #4679b8;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            margin-left: 8px;
-            cursor: pointer;
-          }
-          .gun-type-map-wrapper .filter-badge:hover {
-            background: #365a8f;
-          }
-          .gun-type-map-wrapper .treemap-cell {
-            cursor: pointer;
-            transition: opacity 0.2s;
-          }
-          .gun-type-map-wrapper .treemap-cell.dimmed {
-            opacity: 0.3;
-          }
-          .gun-type-map-wrapper .treemap-cell.active {
-            stroke: #222 !important;
-            stroke-width: 3px !important;
-          }
+          #bar { width: 100%; }
+          #side .hint { font-size:12px; color:#666; margin-top:8px; }
 
-          .gun-type-map-wrapper #tooltip {
+          #tooltip {
             position: absolute;
             pointer-events: none;
             display: none;
@@ -136,56 +108,68 @@ export function GunTypeMap() {
             z-index: 9999;
           }
 
-          .gun-type-map-wrapper .labels-layer text.label {
+          .labels-layer text.label {
             fill: #111;
             stroke: none;
             font-weight: 600;
-            paint-order: stroke;
             text-shadow: 0 0 2px rgba(255,255,255,0.8);
           }
 
+          #treemap {
+            font-family: Arial, sans-serif;
+            margin-left: auto;
+            background: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+          }
+
+          #treemap text { pointer-events: none; }
+
           @media (max-width: 1200px) {
-            .gun-type-map-wrapper main#wrap { flex-direction: column; }
-            .gun-type-map-wrapper #map-area { min-width: auto; width: 100%; }
-            .gun-type-map-wrapper #side { width: 100%; }
+            #top-row { flex-direction: column; align-items: flex-start; }
+            main#wrap { flex-direction: column; }
+            #map-area { min-width: auto; width: 100%; }
+            #side { width: 100%; }
           }
         </style>
 
         <header>
           <h2>Gun Type Map</h2>
-          <p class="subtitle">
-            Click any visualization to filter others. Click state/gun type again to clear filter.
-            <span id="activeFilters"></span>
-          </p>
+          <p class="subtitle">Multi-select gun types (hold Ctrl/Cmd). Click a state to highlight. Click a bar to highlight (no zoom).</p>
         </header>
 
-        <div id="controls">
-          <div class="control-block">
-            <label for="gunTypeSelect"><strong>Gun type (multi-select)</strong></label>
-            <select id="gunTypeSelect" multiple size="8" title="Hold Ctrl/Cmd to select multiple"></select>
+        <!-- Filters + Treemap in one row -->
+        <div id="top-row">
+          <div id="controls">
+            <div class="control-block">
+              <label for="gunTypeSelect"><strong>Gun type (multi-select)</strong></label>
+              <select id="gunTypeSelect" multiple size="8" title="Hold Ctrl/Cmd to select multiple"></select>
+            </div>
+
+            <div class="control-block">
+              <label for="stateSelect"><strong>State</strong></label>
+              <select id="stateSelect">
+                <option value="All States">All States</option>
+              </select>
+              <label class="inline small">
+                <input type="checkbox" id="showLabels" />
+                Show counts on map
+              </label>
+              <label class="inline small">
+                <input type="checkbox" id="excludeUnknown" />
+                Exclude Unknown
+              </label>
+              <button id="resetZoom">Reset Zoom</button>
+            </div>
           </div>
 
-          <div class="control-block">
-            <label for="stateSelect"><strong>State</strong></label>
-            <select id="stateSelect">
-              <option value="All States">All States</option>
-            </select>
-            <label class="inline small">
-              <input type="checkbox" id="showLabels" />
-              Show counts on map
-            </label>
-            <label class="inline small">
-              <input type="checkbox" id="excludeUnknown" />
-              Exclude Unknown
-            </label>
-            <button id="resetZoom">Reset Zoom</button>
-          </div>
+          <svg id="treemap" width="400" height="220"></svg>
         </div>
 
         <main id="wrap">
           <section id="map-area">
             <div class="map-inner">
-              <svg id="map" width="960" height="600" aria-label="US map"></svg>
+              <svg id="map" width="700" height="600" aria-label="US map"></svg>
             </div>
 
             <div id="legend">
@@ -200,17 +184,9 @@ export function GunTypeMap() {
           </section>
 
           <aside id="side">
-            <div class="side-panel">
-              <h3 id="side-title">Top states</h3>
-              <svg id="bar" width="460" height="420" aria-label="Top states bar chart"></svg>
-              <p class="hint">Click a row to highlight a state (no zoom). Click again to clear highlight.</p>
-            </div>
-            
-            <div class="side-panel">
-              <h3>Gun Type Distribution</h3>
-              <svg id="treemap" width="460" height="300" aria-label="Gun type treemap"></svg>
-              <p class="hint">Treemap shows relative proportions of gun types.</p>
-            </div>
+            <h3 id="side-title">Top states</h3>
+            <svg id="bar" width="460" height="420" aria-label="Top states bar chart"></svg>
+            <p class="hint">Click a row to highlight a state (no zoom). Click again to clear highlight.</p>
           </aside>
         </main>
 
@@ -249,8 +225,12 @@ export function GunTypeMap() {
       try {
         data = await d3.json("/data/agg_by_state_full_array.json")
       } catch (e) {
-        console.error("Failed to load data:", e)
-        return
+        try {
+          data = await d3.json("/data/agg_by_state_sample.json")
+        } catch (e2) {
+          console.error("Failed to load data:", e2)
+          return
+        }
       }
 
       const gunTypesSet = new Set()
@@ -259,7 +239,7 @@ export function GunTypeMap() {
           if (k !== "state") gunTypesSet.add(k)
         }),
       )
-      const gunTypes = Array.from(gunTypesSet)
+      let gunTypes = Array.from(gunTypesSet)
         .filter((k) => k !== "nan")
         .sort() as string[]
       gunTypes.unshift("All")
@@ -284,82 +264,21 @@ export function GunTypeMap() {
       const dataMap = new Map()
       data.forEach((d: any) => dataMap.set(d.state, Object.assign({}, d)))
 
-      let activeStateFilter: string | null = null
-      let activeGunTypeFilter: string | null = null
-
-      function updateActiveFilters() {
-        const container = d3.select("#activeFilters")
-        container.selectAll("*").remove()
-
-        if (activeStateFilter) {
-          container
-            .append("span")
-            .attr("class", "filter-badge")
-            .text(`State: ${activeStateFilter}`)
-            .on("click", () => {
-              activeStateFilter = null
-              stateSelect.property("value", "All States")
-              updateAllVisualizations()
-            })
-        }
-
-        if (activeGunTypeFilter) {
-          container
-            .append("span")
-            .attr("class", "filter-badge")
-            .text(`Gun Type: ${activeGunTypeFilter}`)
-            .on("click", () => {
-              activeGunTypeFilter = null
-              updateAllVisualizations()
-            })
-        }
-      }
-
       function getSelectedTypes() {
         const opts = Array.from(gunSelect.node().selectedOptions).map((o: any) => o.value)
         return opts.length === 0 || opts.includes("All") ? ["All"] : opts
       }
 
-      function computeAll(row: any, selectedTypes: string[], filterState?: string | null) {
+      function computeAll(row: any, selectedTypes: string[]) {
         if (!row) return 0
         const excludeUnknown = excludeUnknownCheckbox.property("checked")
-
-        // If we have a state filter and this isn't that state, return 0
-        if (filterState && row.state !== filterState) return 0
-
         let s = 0
         Object.keys(row).forEach((k) => {
           if (k === "state") return
           if (excludeUnknown && k === "Unknown") return
-
-          // Apply gun type filter
-          if (activeGunTypeFilter && k !== activeGunTypeFilter) return
-
           if (!selectedTypes || selectedTypes.includes("All") || selectedTypes.includes(k)) s += +(row[k] || 0)
         })
         return s
-      }
-
-      function computeGunTypeBreakdown(selectedTypes: string[], filterState?: string | null) {
-        const excludeUnknown = excludeUnknownCheckbox.property("checked")
-        const breakdown: Record<string, number> = {}
-
-        data.forEach((row: any) => {
-          // If we have a state filter, only include that state
-          if (filterState && row.state !== filterState) return
-
-          Object.keys(row).forEach((k) => {
-            if (k === "state") return
-            if (excludeUnknown && k === "Unknown") return
-            if (!selectedTypes || selectedTypes.includes("All") || selectedTypes.includes(k)) {
-              breakdown[k] = (breakdown[k] || 0) + +(row[k] || 0)
-            }
-          })
-        })
-
-        return Object.entries(breakdown)
-          .filter(([_, value]) => value > 0)
-          .map(([key, value]) => ({ name: key, value }))
       }
 
       const idToState: Record<number, string> = {
@@ -418,6 +337,7 @@ export function GunTypeMap() {
 
       const color = d3.scaleSequential(d3.interpolateOrRd).domain([0, 1])
 
+      // --- MAP SETUP ---
       const svg = d3.select("#map").attr("preserveAspectRatio", "xMidYMid meet")
       const width = +svg.attr("width"),
         height = +svg.attr("height")
@@ -426,17 +346,6 @@ export function GunTypeMap() {
         .translate([width / 2 + 25, height / 2])
         .scale(1000)
       const path = d3.geoPath().projection(projection)
-
-      const zoom = d3
-        .zoom()
-        .scaleExtent([1, 8])
-        .on("zoom", (event: any) => {
-          g.attr("transform", event.transform)
-          labelsG.attr("transform", event.transform)
-        })
-
-      svg.call(zoom as any)
-
       const g = svg.append("g").attr("class", "map-layer")
       const labelsG = svg.append("g").attr("class", "labels-layer")
 
@@ -447,15 +356,13 @@ export function GunTypeMap() {
       function highlightState(name: string | null) {
         if (!name || name === "All States") {
           highlightedState = null
-          statePaths.transition().duration(300).attr("stroke", "#999").attr("stroke-width", 0.6).attr("opacity", 1)
+          statePaths.attr("stroke", "#999").attr("stroke-width", 0.6).attr("opacity", 1)
           return
         }
         highlightedState = name
-        statePaths.transition().duration(300).attr("stroke", "#999").attr("stroke-width", 0.6).attr("opacity", 0.6)
+        statePaths.attr("stroke", "#999").attr("stroke-width", 0.6).attr("opacity", 0.6)
         statePaths
           .filter((d: any) => idToState[d.id] === name)
-          .transition()
-          .duration(300)
           .attr("stroke", "#222")
           .attr("stroke-width", 2)
           .attr("opacity", 1)
@@ -479,13 +386,12 @@ export function GunTypeMap() {
         tooltip.style("display", "none").attr("aria-hidden", "true")
       }
 
-      // Modified to handle active state filter
       function drawLabels(selectedTypes: string[], show: boolean) {
         labelsG.selectAll("text.label").remove()
         if (!show) return
         const items = states.features.map((f: any) => {
           const row = dataMap.get(idToState[f.id])
-          return { feature: f, val: computeAll(row, selectedTypes, activeStateFilter) }
+          return { feature: f, val: computeAll(row, selectedTypes) }
         })
         labelsG
           .selectAll("text.label")
@@ -505,26 +411,20 @@ export function GunTypeMap() {
           .style("pointer-events", "none")
       }
 
+      // --- BAR CHART ---
       const barSvg = d3.select("#bar"),
         barW = +barSvg.attr("width") - 80,
         barH = +barSvg.attr("height") - 80
       const barG = barSvg.append("g").attr("transform", "translate(50,20)")
 
       function updateBar(selectedTypes: string[]) {
-        let arr = states.features
+        const arr = states.features
           .map((f: any) => {
             const row = dataMap.get(idToState[f.id])
-            return { state: idToState[f.id], value: computeAll(row, selectedTypes, null) }
+            return { state: idToState[f.id], value: computeAll(row, selectedTypes) }
           })
-          .filter((d: any) => d.value > 0)
           .sort((a: any, b: any) => b.value - a.value)
-
-        // If state filter is active, show only that state
-        if (activeStateFilter) {
-          arr = arr.filter((d: any) => d.state === activeStateFilter)
-        } else {
-          arr = arr.slice(0, 18)
-        }
+          .slice(0, 18)
 
         const x = d3
           .scaleLinear()
@@ -547,15 +447,9 @@ export function GunTypeMap() {
           .attr("class", "bar-row")
           .style("cursor", "pointer")
           .on("click", (event: any, d: any) => {
-            if (activeStateFilter === d.state) {
-              activeStateFilter = null
-              stateSelect.property("value", "All States")
-            } else {
-              activeStateFilter = d.state
-              stateSelect.property("value", d.state)
-            }
-            highlightState(activeStateFilter)
-            updateAllVisualizations()
+            highlightState(d.state)
+            stateSelect.property("value", d.state)
+            updateTreemap(d.state)
           })
           .on("mousemove", (event: any, d: any) =>
             placeTooltip(event, `<strong>${d.state}</strong><br/>Count: ${d.value}`),
@@ -567,9 +461,6 @@ export function GunTypeMap() {
           .attr("y", (d: any) => y(d.state)!)
           .attr("height", y.bandwidth())
           .attr("x", 0)
-          .attr("width", 0)
-          .transition()
-          .duration(600)
           .attr("width", (d: any) => x(d.value))
           .attr("fill", "#4679b8")
 
@@ -580,94 +471,77 @@ export function GunTypeMap() {
           .attr("dy", "0.35em")
           .text((d: any) => d.value)
           .style("font-size", "11px")
-          .style("opacity", 0)
-          .transition()
-          .duration(600)
-          .style("opacity", 1)
       }
 
+      // --- TREEMAP ---
       const treemapSvg = d3.select("#treemap"),
         treemapW = +treemapSvg.attr("width"),
         treemapH = +treemapSvg.attr("height")
       const treemapG = treemapSvg.append("g")
 
-      const treemapColor = d3.scaleOrdinal(d3.schemeSet3)
+      function updateTreemap(stateName: string) {
+        let row = null
+        if (stateName && stateName !== "All States") row = dataMap.get(stateName)
+        let selectedTypes = getSelectedTypes().filter((d) => d !== "All")
+        if (excludeUnknownCheckbox.property("checked")) selectedTypes = selectedTypes.filter((d) => d !== "Unknown")
+        const types = selectedTypes.length
+          ? selectedTypes
+          : gunTypes.filter((t) => t !== "All" && (!excludeUnknownCheckbox.property("checked") || t !== "Unknown"))
 
-      function updateTreemap(selectedTypes: string[]) {
-        const breakdown = computeGunTypeBreakdown(selectedTypes, activeStateFilter)
+        const treemapData = row
+          ? { name: "root", children: types.map((t) => ({ name: t, value: +(row[t] || 0) })) }
+          : {
+              name: "root",
+              children: types.map((t) => ({
+                name: t,
+                value: d3.sum(Array.from(dataMap.values()), (d: any) => +(d[t] || 0)),
+              })),
+            }
 
         const root = d3
-          .hierarchy({ children: breakdown })
+          .hierarchy(treemapData)
           .sum((d: any) => d.value)
           .sort((a: any, b: any) => b.value - a.value)
-
-        d3.treemap().size([treemapW, treemapH]).padding(2)(root)
+        d3.treemap().size([treemapW, treemapH]).paddingInner(3)(root)
 
         const nodes = treemapG.selectAll("g").data(root.leaves(), (d: any) => d.data.name)
-
-        nodes.exit().transition().duration(400).style("opacity", 0).remove()
-
-        const entering = nodes.enter().append("g").style("opacity", 0)
-
-        entering
+        nodes.exit().remove()
+        const enterNodes = nodes.enter().append("g").attr("transform", (d: any) => `translate(${d.x0},${d.y0})`)
+        enterNodes
           .append("rect")
-          .attr("class", "treemap-cell")
-          .attr("fill", (d: any) => treemapColor(d.data.name))
-          .attr("stroke", "#fff")
-          .attr("stroke-width", 2)
-          .style("cursor", "pointer")
-
-        entering
-          .append("text")
-          .attr("font-size", 11)
-          .attr("fill", "#000")
-          .attr("text-anchor", "middle")
-          .attr("dy", "0.35em")
-          .style("pointer-events", "none")
-
-        const allNodes = entering.merge(nodes as any)
-
-        allNodes.transition().duration(600).style("opacity", 1)
-
-        allNodes
-          .select("rect")
-          .classed("active", (d: any) => d.data.name === activeGunTypeFilter)
-          .classed("dimmed", (d: any) => activeGunTypeFilter && d.data.name !== activeGunTypeFilter)
-          .on("click", (event: any, d: any) => {
-            if (activeGunTypeFilter === d.data.name) {
-              activeGunTypeFilter = null
-            } else {
-              activeGunTypeFilter = d.data.name
-            }
-            updateAllVisualizations()
-          })
-          .on("mousemove", (event: any, d: any) =>
-            placeTooltip(event, `<strong>${d.data.name}</strong><br/>Count: ${d.data.value}<br/>(Click to filter)`),
-          )
-          .on("mouseout", hideTooltip)
-          .transition()
-          .duration(600)
-          .attr("x", (d: any) => d.x0)
-          .attr("y", (d: any) => d.y0)
           .attr("width", (d: any) => d.x1 - d.x0)
           .attr("height", (d: any) => d.y1 - d.y0)
+          .attr("fill", (d: any) => color(d.value))
+          .attr("stroke", "#fff")
+          .on("mousemove", (event: any, d: any) =>
+            placeTooltip(event, `<strong>${d.data.name}</strong>: ${d.value}`),
+          )
+          .on("mouseout", hideTooltip)
 
-        allNodes
-          .select("text")
-          .transition()
-          .duration(600)
-          .attr("x", (d: any) => (d.x0 + d.x1) / 2)
-          .attr("y", (d: any) => (d.y0 + d.y1) / 2)
+        enterNodes
+          .append("text")
+          .attr("x", 4)
+          .attr("y", 14)
           .text((d: any) => {
-            const width = d.x1 - d.x0
-            const height = d.y1 - d.y0
-            if (width > 60 && height > 30) {
-              return d.data.name.length > 12 ? d.data.name.substring(0, 12) + "..." : d.data.name
-            }
-            return ""
+            const w = d.x1 - d.x0,
+              h = d.y1 - d.y0
+            return w > 30 && h > 14 ? d.data.name : " "
           })
+          .attr("font-size", "11px")
+          .attr("fill", (d: any) => (d3.hsl(color(d.value)).l < 0.5 ? "white" : "black"))
+
+        nodes
+          .merge(enterNodes)
+          .transition()
+          .duration(400)
+          .attr("transform", (d: any) => `translate(${d.x0},${d.y0})`)
+          .select("rect")
+          .attr("width", (d: any) => d.x1 - d.x0)
+          .attr("height", (d: any) => d.y1 - d.y0)
+          .attr("fill", (d: any) => color(d.value))
       }
 
+      // --- MAP INTERACTIONS ---
       const statePaths = g
         .selectAll("path")
         .data(states.features)
@@ -681,36 +555,22 @@ export function GunTypeMap() {
         .on("mousemove", (event: any, d: any) => {
           const name = idToState[d.id]
           const row = dataMap.get(name)
-          placeTooltip(event, `<strong>${name}</strong><br/>Count: ${computeAll(row, getSelectedTypes(), null)}`)
+          placeTooltip(event, `<strong>${name}</strong><br/>Count: ${computeAll(row, getSelectedTypes())}`)
         })
         .on("mouseout", hideTooltip)
         .on("click", (event: any, d: any) => {
-          const stateName = idToState[d.id]
-          if (activeStateFilter === stateName) {
-            activeStateFilter = null
-            stateSelect.property("value", "All States")
-          } else {
-            activeStateFilter = stateName
-            stateSelect.property("value", stateName)
-          }
-          highlightState(activeStateFilter)
-          updateAllVisualizations()
+          highlightState(idToState[d.id])
+          updateTreemap(idToState[d.id])
         })
 
       resetZoomBtn.on("click", () => {
-        activeStateFilter = null
-        activeGunTypeFilter = null
         stateSelect.property("value", "All States")
         highlightState(null)
-        svg
-          .transition()
-          .duration(750)
-          .call(zoom.transform as any, d3.zoomIdentity)
-        updateAllVisualizations()
+        updateTreemap("All States")
       })
 
       function updateMap(selectedTypes: string[]) {
-        const vals = states.features.map((f: any) => computeAll(dataMap.get(idToState[f.id]), selectedTypes, null))
+        const vals = states.features.map((f: any) => computeAll(dataMap.get(idToState[f.id]), selectedTypes))
         const maxv = d3.max(vals) || 1
         color.domain([0, maxv])
         d3.select("#legend-min").text(0)
@@ -721,33 +581,29 @@ export function GunTypeMap() {
           .transition()
           .duration(600)
           .attr("fill", (d: any) => {
-            const val = computeAll(dataMap.get(idToState[d.id]), selectedTypes, null)
+            const val = computeAll(dataMap.get(idToState[d.id]), selectedTypes)
             return val ? color(val) : "#eee"
-          })
-          .attr("opacity", (d: any) => {
-            if (!activeStateFilter) return 1
-            return idToState[d.id] === activeStateFilter ? 1 : 0.3
           })
 
         drawLabels(selectedTypes, showLabelsCheckbox.property("checked"))
         updateBar(selectedTypes)
-        updateTreemap(selectedTypes)
+        updateTreemap(stateSelect.node().value)
+
+        // <CHANGE> Update gun type dropdown dynamically based on exclude unknown filter
+        let typesForDropdown = gunTypes.filter((t) => t !== "All")
+        if (excludeUnknownCheckbox.property("checked")) typesForDropdown = typesForDropdown.filter((t) => t !== "Unknown")
+        const opts = gunSelect.selectAll("option").data(["All"].concat(typesForDropdown), (d: any) => d)
+        opts.enter().append("option").merge(opts).attr("value", (d: any) => d).text((d: any) => d)
+        opts.exit().remove()
       }
 
-      function updateAllVisualizations() {
-        updateMap(getSelectedTypes())
-        updateActiveFilters()
-      }
-
-      gunSelect.on("change", () => updateAllVisualizations())
+      gunSelect.on("change", () => updateMap(getSelectedTypes()))
       stateSelect.on("change", () => {
-        const selectedState = stateSelect.node().value
-        activeStateFilter = selectedState === "All States" ? null : selectedState
-        highlightState(activeStateFilter)
-        updateAllVisualizations()
+        highlightState(stateSelect.node().value)
+        updateTreemap(stateSelect.node().value)
       })
       showLabelsCheckbox.on("change", () => drawLabels(getSelectedTypes(), showLabelsCheckbox.property("checked")))
-      excludeUnknownCheckbox.on("change", () => updateAllVisualizations())
+      excludeUnknownCheckbox.on("change", () => updateMap(getSelectedTypes()))
 
       Array.from(gunSelect.node().options).forEach((opt: any) => (opt.selected = opt.value === "All"))
       excludeUnknownCheckbox.property("checked", false)
