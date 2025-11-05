@@ -119,7 +119,7 @@ export default function Home() {
         description="Examining the relationship between gun legislation and violence rates across different states and jurisdictions."
         variant="muted"
       >
-        <div className="flex items-center justify-center min-h-[400px] rounded-lg border-2 border-dashed border-border bg-muted/50">
+        {/* <div className="flex items-center justify-center min-h-[400px] rounded-lg border-2 border-dashed border-border bg-muted/50">
           <div className="text-center px-4">
             <h3 className="text-xl font-semibold text-foreground mb-2">Laws & Legislation Visualization</h3>
             <p className="text-muted-foreground max-w-md">
@@ -129,7 +129,7 @@ export default function Home() {
           </div>
         
 
-        </div>
+        </div> */}
         <div>
           <TableauEmbed
             url="https://public.tableau.com/views/gunlaws_with_gun_data/Dashboard1?:?:embed=y&:showVizHome=no"
