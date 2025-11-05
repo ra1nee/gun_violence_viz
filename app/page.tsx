@@ -46,9 +46,10 @@ export default function Home() {
         description="Analysis of gun violence incidents across demographic factors including age, income, race, and gender. Understanding the human impact through data."
         variant="muted"
       >
-        <div>
+        {/* Viz 1 */}
+        <div className="relative w-full min-h-[720px]">
           <TableauEmbed
-            url=""
+            url="https://public.tableau.com/views/agecharts/Demographic?:embed=y&:showVizHome=no"
             title="Gun Violence Age Breakdown Dashboard"
           />
           <div className="py-4">
@@ -70,10 +71,12 @@ export default function Home() {
           </div>
         </div>
 
-        <div>
+        {/* Viz 2 */}
+        <div className="relative w-full min-h-[720px]">
           <TableauEmbed
-            url=""
+            url="https://public.tableau.com/views/RaceDistributionvsMortalityRatebyState/RaceDistributionandMortalityRateByState?:embed=y&:showVizHome=no"
             title="Gun Violence Race Breakdown Dashboard"
+
           />
           <div className="py-4">
             <p className="text-muted-foreground">
@@ -138,11 +141,11 @@ export default function Home() {
         </div>
 
 
-          <TableauEmbed
-            url="https://public.tableau.com/views/gunlaws_17622635731760/GunlawsimplementationDashboard?:embed=y&:showVizHome=no"
-            title="Gun Law Scorecard Dashboard"
-          />
-                  <div>
+        <TableauEmbed
+          url="https://public.tableau.com/views/gunlaws_17622635731760/GunlawsimplementationDashboard?:embed=y&:showVizHome=no"
+          title="Gun Law Scorecard Dashboard"
+        />
+        <div>
           {/* <p>This interactive dashboard visualizes the evolution and distribution of firearm-related legislation across the United States.
 Timeline for Number of Laws: The top line chart tracks how gun-related laws have changed over time, categorized by the type of legislative action—Implement, Modify, or Repeal—to reveal trends in policy momentum and reform periods.
 Number of Laws Implemented by State: The treemap in the center highlights each state’s contribution to total legislative activity. Larger blocks indicate states with a higher count of enacted or amended laws.
@@ -151,12 +154,12 @@ Together, these visuals allow users to explore how actively each state has legis
 Clicking a state dynamically filters the other charts, enabling deeper exploration of state-specific legislative patterns and focus areas.</p> */}
         </div>
         <div></div>
-         <TableauEmbed
-                url="https://public.tableau.com/views/lobbying_17622618963790/Amountspentlobbyingbyinterest?:embed=y&:showVizHome=no"
-                title="Gun Violence Lobbying Amounts by Interest"
-              />
+        <TableauEmbed
+          url="https://public.tableau.com/views/lobbying_17622618963790/Amountspentlobbyingbyinterest?:embed=y&:showVizHome=no"
+          title="Gun Violence Lobbying Amounts by Interest"
+        />
 
-               <div>
+        <div>
           <p>This chart showcases the amount spent by various interest groups on gun violence prevention and legislation efforts.</p>
         </div>
       </VisualizationSection>
