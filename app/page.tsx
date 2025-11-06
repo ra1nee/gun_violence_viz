@@ -114,7 +114,7 @@ export default function Home() {
       {/* Gun Type Analysis Section */}
       <VisualizationSection
         title="Gun Type Analysis"
-        description="Interactive map showing gun violence incidents by gun type across all US states. Multi-select gun types, click states to highlight, and explore the data through multiple coordinated views."
+        description="Exploring the distribution and impact of different gun types used in violent incidents across the US."
       >
         <GunTypeMap />
       </VisualizationSection>
