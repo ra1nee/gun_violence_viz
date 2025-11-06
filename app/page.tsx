@@ -1,6 +1,5 @@
 import { VisualizationSection } from "@/components/visualization-section"
 import { TableauEmbed } from "@/components/tableau-embed"
-import { D3TimelineChart } from "@/components/d3-timeline-chart"
 import { GunTypeMap } from "@/components/gun-type-map"
 
 export default function Home() {
@@ -32,6 +31,12 @@ export default function Home() {
         <div className="py-4">
           <p className="text-muted-foreground text-xl">
             Dashboard that takes a look at the high level view of gun violence in the different US states from 2014 to 2017, including <b>geographic distribution patterns, mortality rates, trends, and projected trends in gun violence.</b>
+          </p>
+          <p className="text-muted-foreground text-xl">
+            Some notable states that have a high number of incidents include California, Illinois, Florida, and Texas, which could be attributed to their larger populations. However, number of incidents alone does not provide a complete picture of gun violence, as states like Arizona and Texas have the highest mortality rates despite not having the highest number of incidents. This suggests that the severity of gun violence varies across states, with some experiencing more lethal incidents than others.
+          </p>
+          <p className="text-muted-foreground text-xl">
+            The trend lines highlight an increasing trend in gun violence incidents over the years, with projections indicating a continued rise if current patterns persist. This underscores the urgent need for effective interventions and policies to address the escalating issue of gun violence in the US.
           </p>
         </div>
         {/* <div className="flex items-center justify-center min-h-[400px] rounded-lg border-2 border-dashed border-border bg-muted/50">
@@ -70,7 +75,13 @@ export default function Home() {
           />
           <div className="py-4">
             <p className="text-muted-foreground text-xl">
-              Dashboard comprising of visualizations comparing firearm mortality patterns by <b>suspect and victim gender across states and over time</b>. It shows that incidents involving male suspects are far more prevalent, with males also making up the majority of victims nationwide.
+              Dashboard comprising of visualizations comparing firearm mortality patterns by <b>suspect and victim gender across states and over time</b>.
+            </p>
+            <p className="text-muted-foreground text-xl">
+              The dashboard shows that incidents involving male suspects are far more prevalent, with males also making up the majority of victims nationwide. However, it is interesting to note that the mortality rates of incidents involving female suspects are higher, particularly in Nevada and Arizona.
+            </p>
+            <p className="text-muted-foreground text-xl">
+              The variance of the gender breakdown across the years highlights the evolving nature of gun violence and its impact on different demographic groups. Males have a higher variability in their involvement as victims in gun violence incidents compared to females, indicating that males are more susceptible to fluctuations in gun violence trends over time.
             </p>
           </div>
         </div>
@@ -150,9 +161,8 @@ Clicking a state dynamically filters the other charts, enabling deeper explorati
           url="https://public.tableau.com/views/lobbying_17622618963790/Amountspentlobbyingbyinterest?:embed=y&:showVizHome=no"
           title="Gun Violence Lobbying Amounts by Interest"
         />
-
-        <div>
-          <p>This chart showcases the amount spent by various interest groups on gun violence prevention and legislation efforts.</p>
+        <div className="py-4">
+          <p className="text-muted-foreground text-xl">This chart showcases the amount spent by various interest groups on gun violence prevention and legislation efforts.</p>
         </div>
       </VisualizationSection>
 
