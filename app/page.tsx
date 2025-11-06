@@ -49,13 +49,13 @@ export default function Home() {
         {/* Viz 1 */}
         <div className="relative w-full min-h-[720px]">
           <TableauEmbed
-            url="https://public.tableau.com/views/agecharts/Demographic?:embed=y&:showVizHome=no"
+            url="https://public.tableau.com/views/agebinwb/Demographic?:embed=y&:showVizHome=no"
             title="Gun Violence Age Breakdown Dashboard"
           />
           <div className="py-4">
             <p className="text-muted-foreground">
-              Add age description here.
-            </p>
+              Dashboard presenting visualizations across four key analyses: <b>Firearm Possessor Age Distribution, Firearm Possessor vs Mortality Rate, and Median Income & Poverty Estimate vs Mortality Rate.</b></p>
+              <p className="text-muted-foreground">The dashboard collectively explores how demographic and socioeconomic factors such as age, income, and poverty, relate to patterns of firearm ownership and mortality across U.S. states from 2014 to 2017.</p>
           </div>
         </div>
 
@@ -66,7 +66,7 @@ export default function Home() {
           />
           <div className="py-4">
             <p className="text-muted-foreground">
-              Add gender description here.
+              Dashboard comprising of visualizations comparing firearm mortality patterns by <b>suspect and victim gender across states and over time</b>. It shows that incidents involving male suspects are far more prevalent, with males also making up the majority of victims nationwide.
             </p>
           </div>
         </div>
@@ -80,19 +80,7 @@ export default function Home() {
           />
           <div className="py-4">
             <p className="text-muted-foreground">
-              Add race description here.
-            </p>
-          </div>
-        </div>
-
-        <div>
-          <TableauEmbed
-            url=""
-            title="Gun Violence Income Breakdown Dashboard"
-          />
-          <div className="py-4">
-            <p className="text-muted-foreground">
-              Add income description here.
+              This visualization depicts the <b>racial composition of firearm-related mortality across U.S. states,</b> combining pie charts to illustrate race distribution and choropleth shading to represent average mortality rates. Darker shades indicate states with higher firearm mortality, while the pie chart segments reveal demographic variation across racial groups. The visualisation highlights how racial composition and regional disparities jointly shape patterns of firearm-related deaths.
             </p>
           </div>
         </div>
