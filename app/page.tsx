@@ -14,8 +14,7 @@ export default function Home() {
               Gun Violence in America
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed md:text-xl">
-              An in-depth analysis of gun violence statistics, trends, and patterns across the United States. Explore
-              interactive data visualizations to understand the scope and impact of this critical issue.
+              This website contains an in-depth analysis of gun violence statistics, trends, and patterns across the United States (US). We would be analysing various aspects of gun violence including demographics, gun types, and legislations through interactive visualizations, touching on how they might influence gun violence rates in the US.
             </p>
           </div>
         </div>
@@ -24,12 +23,17 @@ export default function Home() {
       {/* Tableau Visualization Section */}
       <VisualizationSection
         title="US Overview of Gun Violence"
-        description="Comprehensive statistics on gun violence incidents across all 50 states, including temporal trends and geographic distribution patterns."
+        description="Comprehensive statistics on gun violence incidents across all 50 states."
       >
         <TableauEmbed
           url="https://public.tableau.com/views/overall_gender_analysis/Overalldashboard?:embed=y&:showVizHome=no"
           title="Gun Violence US Overview Dashboard"
         />
+        <div className="py-4">
+          <p className="text-muted-foreground text-xl">
+            Dashboard that takes a look at the high level view of gun violence in the different US states from 2014 to 2017, including <b>geographic distribution patterns, mortality rates, trends, and projected trends in gun violence.</b>
+          </p>
+        </div>
         {/* <div className="flex items-center justify-center min-h-[400px] rounded-lg border-2 border-dashed border-border bg-muted/50">
           <div className="text-center px-4">
             <h3 className="text-xl font-semibold text-foreground mb-2">US Overview of Gun Violence Visualization</h3>
@@ -43,7 +47,7 @@ export default function Home() {
       {/* Demographics Section */}
       <VisualizationSection
         title="Demographics"
-        description="Analysis of gun violence incidents across demographic factors including age, income, race, and gender. Understanding the human impact through data."
+        description="Analysis of gun violence incidents across demographic factors including age, income, race, and gender, shedding light on how these factors intersect and influence gun violence patterns."
         variant="muted"
       >
         {/* Viz 1 */}
@@ -53,9 +57,9 @@ export default function Home() {
             title="Gun Violence Age Breakdown Dashboard"
           />
           <div className="py-4">
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-xl">
               Dashboard presenting visualizations across four key analyses: <b>Firearm Possessor Age Distribution, Firearm Possessor vs Mortality Rate, and Median Income & Poverty Estimate vs Mortality Rate.</b></p>
-              <p className="text-muted-foreground">The dashboard collectively explores how demographic and socioeconomic factors such as age, income, and poverty, relate to patterns of firearm ownership and mortality across U.S. states from 2014 to 2017.</p>
+            <p className="text-muted-foreground text-xl">The dashboard collectively explores how demographic and socioeconomic factors such as age, income, and poverty, relate to patterns of firearm ownership and mortality across U.S. states from 2014 to 2017.</p>
           </div>
         </div>
 
@@ -65,7 +69,7 @@ export default function Home() {
             title="Gun Violence Gender Breakdown Dashboard"
           />
           <div className="py-4">
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-xl">
               Dashboard comprising of visualizations comparing firearm mortality patterns by <b>suspect and victim gender across states and over time</b>. It shows that incidents involving male suspects are far more prevalent, with males also making up the majority of victims nationwide.
             </p>
           </div>
@@ -79,7 +83,7 @@ export default function Home() {
 
           />
           <div className="py-4">
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-xl">
               This visualization depicts the <b>racial composition of firearm-related mortality across U.S. states,</b> combining pie charts to illustrate race distribution and choropleth shading to represent average mortality rates. Darker shades indicate states with higher firearm mortality, while the pie chart segments reveal demographic variation across racial groups. The visualisation highlights how racial composition and regional disparities jointly shape patterns of firearm-related deaths.
             </p>
           </div>
