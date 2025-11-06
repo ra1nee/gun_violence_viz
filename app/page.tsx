@@ -117,6 +117,11 @@ export default function Home() {
         description="Exploring the distribution and impact of different gun types used in violent incidents across the US."
       >
         <GunTypeMap />
+        <div className="py-4">
+          <p className="text-muted-foreground text-xl">
+            This visualization presents the <b>distribution of gun types used across different states in the United States</b> through an interactive map, bar chart and treemap. The map displays the national landscape, where darker shades of red indicate a higher number of injuries or deaths. The bar chart states in descending order based on total incidents, while the treemap breaks down the count by gun type. All charts are interactive and integrated with filters that allow users to view numerical counts on the map and exclude unknown values. Together, these visualizations reveal how different types of firearms contribute to varying levels of injuries or fatalities across states, emphasizing the importance of effective gun control policies.
+          </p>
+        </div>
       </VisualizationSection>
 
       {/* Laws & Legislation Section */}
