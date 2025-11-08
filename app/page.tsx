@@ -57,14 +57,14 @@ export default function Home() {
       >
         {/* Viz 1 */}
         <div className="relative w-full min-h-[720px]">
-          <TableauEmbed        
+          <TableauEmbed
             url="https://public.tableau.com/views/Demographics_17625944165220/Demographic?:embed=y&:showVizHome=no"
             title="Gun Violence Demographics Dashboard"
           />
           <div className="py-4">
             <p className="text-muted-foreground text-xl">
               Dashboard presenting visualizations across three key analyses: <b>Firearm Possessor Age Distribution, Firearm Possessor vs Mortality Rate, and Median Income vs Mortality Rate.</b></p>
-              <p className="text-muted-foreground text-xl ">The dashboard collectively explores how demographic and socioeconomic factors such as age and income, relate to patterns of firearm ownership and mortality across U.S. states from 2014 to 2017.</p>
+            <p className="text-muted-foreground text-xl ">The dashboard collectively explores how demographic and socioeconomic factors such as age and income, relate to patterns of firearm ownership and mortality across U.S. states from 2014 to 2017.</p>
           </div>
         </div>
 
@@ -137,42 +137,56 @@ export default function Home() {
             title="Gun Laws with Gun Death Dashboard"
           />
         </div>
-         <div className="flex justify-center rounded-lg  bg-muted/50">
+        {/* <div className="flex justify-center rounded-lg  bg-muted/50">
           <div className="text-center px-4">
             <h3 className="text-xl font-semibold text-foreground mb-2">Laws & Legislation Visualization</h3>
             <p className="text-muted-foreground max-w-md">
-
               This interactive dashboard visualizes the evolution and distribution of firearm-related legislation across the United State, alongside the specific categories of legislation implemented.
             </p>
           </div>
-        <div>
-
+        </div> */}
+        <div className="py-4">
+          <p className="text-muted-foreground text-xl">
+            This interactive dashboard visualizes the <b>evolution and distribution of firearm-related legislation</b> across the United State, alongside the specific categories of legislation implemented.
+          </p>
         </div>
-
-        </div> 
 
         <TableauEmbed
           url="https://public.tableau.com/views/gunlaws_17622635731760/GunlawsimplementationDashboard?:embed=y&:showVizHome=no"
           title="Gun Law Scorecard Dashboard"
         />
-         <div className="flex justify-center rounded-lg  bg-muted/50">
+        {/* <div className="flex justify-center rounded-lg  bg-muted/50">
           <div className="text-center px-4">
             <h3 className="text-xl font-semibold text-foreground mb-2">Laws & Legislation Visualization</h3>
             <p className="text-muted-foreground ">
 
               This interactive dashboard visualizes the evolution and distribution of firearm-related legislation across the United States.
-Timeline for Number of Laws: The top line chart tracks how gun-related laws have changed over time, categorized by the type of legislative action—Implement, Modify, or Repeal—to reveal trends in policy momentum and reform periods.
-Number of Laws Implemented by State: The treemap in the center highlights each state’s contribution to total legislative activity. Larger blocks indicate states with a higher count of enacted or amended laws.
-Type of Gun Law Implementation by State: The bottom stacked bar chart breaks down the composition of law types—such as background checks, open carry, registration, and waiting periods—implemented in each state.
-Together, these visuals allow users to explore how actively each state has legislated on firearms, what kinds of regulations dominate, and when major policy shifts occurred.
-Clicking a state dynamically filters the other charts, enabling deeper exploration of state-specific legislative patterns and focus areas.
+              Timeline for Number of Laws: The top line chart tracks how gun-related laws have changed over time, categorized by the type of legislative action—Implement, Modify, or Repeal—to reveal trends in policy momentum and reform periods.
+              Number of Laws Implemented by State: The treemap in the center highlights each state’s contribution to total legislative activity. Larger blocks indicate states with a higher count of enacted or amended laws.
+              Type of Gun Law Implementation by State: The bottom stacked bar chart breaks down the composition of law types—such as background checks, open carry, registration, and waiting periods—implemented in each state.
+              Together, these visuals allow users to explore how actively each state has legislated on firearms, what kinds of regulations dominate, and when major policy shifts occurred.
+              Clicking a state dynamically filters the other charts, enabling deeper exploration of state-specific legislative patterns and focus areas.
             </p>
           </div>
-        <div>
-
+        </div> */}
+        <div className="py-4">
+          <p className="text-muted-foreground text-xl">
+            This interactive dashboard visualizes the <b>evolution and distribution of firearm-related legislation</b> across the United States.
+          </p>
+          <p className="text-muted-foreground text-xl">
+            <b>Timeline for Number of Laws:</b> The top line chart tracks how gun-related laws have changed over time, categorized by the type of legislative action—Implement, Modify, or Repeal—to reveal trends in policy momentum and reform periods.
+          </p>
+          <p className="text-muted-foreground text-xl">
+            <b>Number of Laws Implemented by State:</b> The treemap in the center highlights each state’s contribution to total legislative activity. Larger blocks indicate states with a higher count of enacted or amended laws.
+          </p>
+          <p className="text-muted-foreground text-xl">
+            <b>Type of Gun Law Implementation by State:</b> The bottom stacked bar chart breaks down the composition of law types—such as background checks, open carry, registration, and waiting periods—implemented in each state.
+          </p>
+          <p className="text-muted-foreground text-xl">
+            Together, these visuals allow users to explore how actively each state has legislated on firearms, what kinds of regulations dominate, and when major policy shifts occurred.
+            Clicking a state dynamically filters the other charts, enabling deeper exploration of state-specific legislative patterns and focus areas.
+          </p>
         </div>
-
-        </div> 
 
         <div></div>
         <TableauEmbed
