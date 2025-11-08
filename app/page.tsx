@@ -1,6 +1,5 @@
 import { VisualizationSection } from "@/components/visualization-section"
 import { TableauEmbed } from "@/components/tableau-embed"
-import { D3TimelineChart } from "@/components/d3-timeline-chart"
 import { GunTypeMap } from "@/components/gun-type-map"
 
 export default function Home() {
@@ -14,8 +13,7 @@ export default function Home() {
               Gun Violence in America
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed md:text-xl">
-              An in-depth analysis of gun violence statistics, trends, and patterns across the United States. Explore
-              interactive data visualizations to understand the scope and impact of this critical issue.
+              This website contains an in-depth analysis of gun violence statistics, trends, and patterns across the United States (US). We would be analysing various aspects of gun violence including demographics, gun types, and legislations through interactive visualizations, touching on how they might influence gun violence rates in the US.
             </p>
           </div>
         </div>
@@ -24,12 +22,23 @@ export default function Home() {
       {/* Tableau Visualization Section */}
       <VisualizationSection
         title="US Overview of Gun Violence"
-        description="Comprehensive statistics on gun violence incidents across all 50 states, including temporal trends and geographic distribution patterns."
+        description="Comprehensive statistics on gun violence incidents across all 50 states."
       >
         <TableauEmbed
           url="https://public.tableau.com/views/overall_gender_analysis/Overalldashboard?:embed=y&:showVizHome=no"
           title="Gun Violence US Overview Dashboard"
         />
+        <div className="py-4">
+          <p className="text-muted-foreground text-xl">
+            Dashboard that takes a look at the high level view of gun violence in the different US states from 2014 to 2017, including <b>geographic distribution patterns, mortality rates, trends, and projected trends in gun violence.</b>
+          </p>
+          <p className="text-muted-foreground text-xl">
+            Some notable states that have a high number of incidents include California, Illinois, Florida, and Texas, which could be attributed to their larger populations. However, number of incidents alone does not provide a complete picture of gun violence, as states like Arizona and Texas have the highest mortality rates despite not having the highest number of incidents. This suggests that the severity of gun violence varies across states, with some experiencing more lethal incidents than others.
+          </p>
+          <p className="text-muted-foreground text-xl">
+            The trend lines highlight an increasing trend in gun violence incidents over the years, with projections indicating a continued rise if current patterns persist. This underscores the urgent need for effective interventions and policies to address the escalating issue of gun violence in the US.
+          </p>
+        </div>
         {/* <div className="flex items-center justify-center min-h-[400px] rounded-lg border-2 border-dashed border-border bg-muted/50">
           <div className="text-center px-4">
             <h3 className="text-xl font-semibold text-foreground mb-2">US Overview of Gun Violence Visualization</h3>
@@ -43,19 +52,19 @@ export default function Home() {
       {/* Demographics Section */}
       <VisualizationSection
         title="Demographics"
-        description="Analysis of gun violence incidents across demographic factors including age, income, race, and gender. Understanding the human impact through data."
+        description="Analysis of gun violence incidents across demographic factors including age, income, race, and gender, shedding light on how these factors intersect and influence gun violence patterns."
         variant="muted"
       >
         {/* Viz 1 */}
         <div className="relative w-full min-h-[720px]">
           <TableauEmbed
-            url="https://public.tableau.com/views/agecharts/Demographic?:embed=y&:showVizHome=no"
+            url="https://public.tableau.com/views/agebinwb/Demographic?:embed=y&:showVizHome=no"
             title="Gun Violence Age Breakdown Dashboard"
           />
           <div className="py-4">
-            <p className="text-muted-foreground">
-              Add age description here.
-            </p>
+            <p className="text-muted-foreground text-xl">
+              Dashboard presenting visualizations across four key analyses: <b>Firearm Possessor Age Distribution, Firearm Possessor vs Mortality Rate, and Median Income & Poverty Estimate vs Mortality Rate.</b></p>
+            <p className="text-muted-foreground text-xl">The dashboard collectively explores how demographic and socioeconomic factors such as age, income, and poverty, relate to patterns of firearm ownership and mortality across U.S. states from 2014 to 2017.</p>
           </div>
         </div>
 
@@ -65,8 +74,14 @@ export default function Home() {
             title="Gun Violence Gender Breakdown Dashboard"
           />
           <div className="py-4">
-            <p className="text-muted-foreground">
-              Add gender description here.
+            <p className="text-muted-foreground text-xl">
+              Dashboard comprising of visualizations comparing firearm mortality patterns by <b>suspect and victim gender across states and over time</b>.
+            </p>
+            <p className="text-muted-foreground text-xl">
+              The dashboard shows that incidents involving male suspects are far more prevalent, with males also making up the majority of victims nationwide. However, it is interesting to note that the mortality rates of incidents involving female suspects are higher, particularly in Nevada and Arizona.
+            </p>
+            <p className="text-muted-foreground text-xl">
+              The variance of the gender breakdown across the years highlights the evolving nature of gun violence and its impact on different demographic groups. Males have a higher variability in their involvement as victims in gun violence incidents compared to females, indicating that males are more susceptible to fluctuations in gun violence trends over time.
             </p>
           </div>
         </div>
@@ -79,20 +94,8 @@ export default function Home() {
 
           />
           <div className="py-4">
-            <p className="text-muted-foreground">
-              Add race description here.
-            </p>
-          </div>
-        </div>
-
-        <div>
-          <TableauEmbed
-            url=""
-            title="Gun Violence Income Breakdown Dashboard"
-          />
-          <div className="py-4">
-            <p className="text-muted-foreground">
-              Add income description here.
+            <p className="text-muted-foreground text-xl">
+              This visualization depicts the <b>racial composition of firearm-related mortality across U.S. states,</b> combining pie charts to illustrate race distribution and choropleth shading to represent average mortality rates. Darker shades indicate states with higher firearm mortality, while the pie chart segments reveal demographic variation across racial groups. The visualisation highlights how racial composition and regional disparities jointly shape patterns of firearm-related deaths.
             </p>
           </div>
         </div>
@@ -111,9 +114,14 @@ export default function Home() {
       {/* Gun Type Analysis Section */}
       <VisualizationSection
         title="Gun Type Analysis"
-        description="Interactive map showing gun violence incidents by gun type across all US states. Multi-select gun types, click states to highlight, and explore the data through multiple coordinated views."
+        description="Exploring the distribution and impact of different gun types used in violent incidents across the US."
       >
         <GunTypeMap />
+        <div className="py-4">
+          <p className="text-muted-foreground text-xl">
+            This visualization presents the <b>distribution of gun types used across different states in the United States</b> through an interactive map, bar chart and treemap. The map displays the national landscape, where darker shades of red indicate a higher number of injuries or deaths. The bar chart states in descending order based on total incidents, while the treemap breaks down the count by gun type. All charts are interactive and integrated with filters that allow users to view numerical counts on the map and exclude unknown values. Together, these visualizations reveal how different types of firearms contribute to varying levels of injuries or fatalities across states, emphasizing the importance of effective gun control policies.
+          </p>
+        </div>
       </VisualizationSection>
 
       {/* Laws & Legislation Section */}
@@ -171,16 +179,8 @@ Clicking a state dynamically filters the other charts, enabling deeper explorati
           url="https://public.tableau.com/views/lobbying_17622618963790/Amountspentlobbyingbyinterest?:embed=y&:showVizHome=no"
           title="Gun Violence Lobbying Amounts by Interest"
         />
-         <div className="flex justify-center rounded-lg  bg-muted/50">
-          <div className="text-center px-4">
-            <h3 className="text-xl font-semibold text-foreground mb-2">Laws & Legislation Visualization</h3>
-            <p className="text-muted-foreground max-w-md">
-
-              This chart showcases the amount spent by various interest groups on gun violence prevention and legislation efforts.
-            </p>
-          </div>
-        <div>
-
+        <div className="py-4">
+          <p className="text-muted-foreground text-xl">This chart showcases the amount spent by various interest groups on gun violence prevention and legislation efforts.</p>
         </div>
 
         </div> 
