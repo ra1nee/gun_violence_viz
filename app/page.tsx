@@ -183,7 +183,7 @@ Clicking a state dynamically filters the other charts, enabling deeper explorati
           <p className="text-muted-foreground text-xl">This chart showcases the amount spent by various interest groups on gun violence prevention and legislation efforts.</p>
         </div>
 
-        </div> 
+        {/* </div>  */}
       </VisualizationSection>
 
       {/* Footer */}
