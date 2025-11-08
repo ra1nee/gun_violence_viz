@@ -57,14 +57,14 @@ export default function Home() {
       >
         {/* Viz 1 */}
         <div className="relative w-full min-h-[720px]">
-          <TableauEmbed
-            url="https://public.tableau.com/views/agebinwb/Demographic?:embed=y&:showVizHome=no"
-            title="Gun Violence Age Breakdown Dashboard"
+          <TableauEmbed        
+            url="https://public.tableau.com/views/Demographics_17625944165220/Demographic?:embed=y&:showVizHome=no"
+            title="Gun Violence Demographics Dashboard"
           />
           <div className="py-4">
             <p className="text-muted-foreground text-xl">
-              Dashboard presenting visualizations across four key analyses: <b>Firearm Possessor Age Distribution, Firearm Possessor vs Mortality Rate, and Median Income & Poverty Estimate vs Mortality Rate.</b></p>
-            <p className="text-muted-foreground text-xl">The dashboard collectively explores how demographic and socioeconomic factors such as age, income, and poverty, relate to patterns of firearm ownership and mortality across U.S. states from 2014 to 2017.</p>
+              Dashboard presenting visualizations across three key analyses: <b>Firearm Possessor Age Distribution, Firearm Possessor vs Mortality Rate, and Median Income vs Mortality Rate.</b></p>
+              <p className="text-muted-foreground text-xl ">The dashboard collectively explores how demographic and socioeconomic factors such as age and income, relate to patterns of firearm ownership and mortality across U.S. states from 2014 to 2017.</p>
           </div>
         </div>
 
